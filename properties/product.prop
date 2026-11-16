@@ -7,21 +7,3 @@ persist.device_config.runtime_native_boot.iorap_readahead_enable=false
 # Audio
 audio.offload.min.duration.secs=30
 media.stagefright.audio.deep=false
-<<<<<<< HEAD
-
-# Bluetooth
-bluetooth.device_id.vendor_id=0x001D
-bluetooth.profile.a2dp.source.enabled=true
-bluetooth.profile.avrcp.controller.enabled=true
-bluetooth.profile.avrcp.target.enabled=true
-bluetooth.profile.bas.client.enabled=true
-bluetooth.profile.gatt.enabled=true
-bluetooth.profile.hfp.ag.enabled=true
-bluetooth.profile.hid.device.enabled=false
-bluetooth.profile.hid.host.enabled=true
-bluetooth.profile.map.server.enabled=true
-bluetooth.profile.opp.enabled=true
-bluetooth.profile.pbap.server.enabled=true
-
-=======
->>>>>>> c215955 (sm8450-common: Move Bluetooth profile property to system_ext)
