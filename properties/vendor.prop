@@ -220,12 +220,7 @@ debug.stagefright.c2inputsurface=-1
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
-<<<<<<< HEAD
-vendor.pasr.activemode.enabled=false
-vendor.pasr.enabled=false
 vendor.perf.framepacing.enable=1
-=======
->>>>>>> 6a5f97d (sm8450-common: Remove PASR leftovers)
 
 # Radio
 persist.dbg.volte_avail_ovr=1
