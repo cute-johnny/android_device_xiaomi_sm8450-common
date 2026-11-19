@@ -124,7 +124,7 @@ function configure_memory_parameters() {
 
 	# ZRAM is configured by Android 17 mmd (mmd.zram.enabled=true)
 	configure_read_ahead_kb_values
-	echo 80 > /proc/sys/vm/swappiness
+	echo 120 > /proc/sys/vm/swappiness
 	echo 15 > /proc/sys/vm/dirty_ratio
 
 	# Disable periodic kcompactd wakeups. We do not use THP, so having many
