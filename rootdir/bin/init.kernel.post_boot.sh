@@ -86,13 +86,8 @@ function configure_read_ahead_kb_values() {
 	# /sys/block/dm-0/queue/read_ahead_kb to /sys/block/dm-10/queue/read_ahead_kb
 	# /sys/block/sda/queue/read_ahead_kb to /sys/block/sdh/queue/read_ahead_kb
 
-	# Set 128 for <= 4GB &
-	# set 512 for >= 5GB targets.
-	if [ $MemTotal -le 4194304 ]; then
-		ra_kb=128
-	else
-		ra_kb=512
-	fi
+	# Keep 128 KiB read-ahead on UFS 3.1 to avoid 4x read amplification under reclaim
+	ra_kb=128
 	if [ -f /sys/block/mmcblk0/bdi/read_ahead_kb ]; then
 		echo $ra_kb > /sys/block/mmcblk0/bdi/read_ahead_kb
 	fi
@@ -129,7 +124,8 @@ function configure_memory_parameters() {
 
 	# ZRAM is configured by Android 17 mmd (mmd.zram.enabled=true)
 	configure_read_ahead_kb_values
-	echo 120 > /proc/sys/vm/swappiness
+	echo 80 > /proc/sys/vm/swappiness
+	echo 15 > /proc/sys/vm/dirty_ratio
 
 	# Disable periodic kcompactd wakeups. We do not use THP, so having many
 	# huge pages is not as necessary.
